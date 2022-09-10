@@ -1,0 +1,23 @@
+﻿version: '3.8'
+
+services:
+  adventure-api:
+    container_name: adventure-api
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    ports:
+      - "5044:5044"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://*:5044
+
+  adventure-database:
+    image: mcr.microsoft.com/mssql/server
+    container_name: adventure-database
+    environment:
+      - SA_PASSWORD=1Secure*Password1
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+    ports:
+      - "5120:1433"

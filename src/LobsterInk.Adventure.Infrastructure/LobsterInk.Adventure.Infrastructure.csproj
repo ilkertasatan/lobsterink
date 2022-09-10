@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.0.123" />
+        <PackageReference Include="Dapper.SqlBuilder" Version="2.0.78" />
+        <PackageReference Include="dbup-core" Version="4.6.3" />
+        <PackageReference Include="dbup-sqlserver" Version="4.6.0" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LobsterInk.Adventure.Domain\LobsterInk.Adventure.Domain.csproj" />
+      <ProjectReference Include="..\LobsterInk.Application.Abstraction\LobsterInk.Application.Abstraction.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="DataAccess\Migrations\Scripts\0001 - Initial.sql" />
+      <EmbeddedResource Include="DataAccess\Migrations\Scripts\0001 - Initial.sql" />
+      <None Remove="DataAccess\Migrations\Scripts\0002 - CreateAdventureTree.sql" />
+      <EmbeddedResource Include="DataAccess\Migrations\Scripts\0002 - CreateAdventureTree.sql" />
+      <None Remove="DataAccess\Migrations\Scripts\0003 - CreateAdventureTreeNode.sql" />
+      <EmbeddedResource Include="DataAccess\Migrations\Scripts\0003 - CreateAdventureTreeNode.sql" />
+      <None Remove="DataAccess\Migrations\Scripts\0004 - CreateUserAdventure.sql" />
+      <EmbeddedResource Include="DataAccess\Migrations\Scripts\0004 - CreateUserAdventure.sql" />
+    </ItemGroup>
+
+</Project>
